@@ -32,7 +32,12 @@
 ## Development
   To start the development server run:
   ```bash
+    bun i
+  ```
+  ```bash
     bun dev
   ```
+
+  or use NPM
 
   Open http://localhost:3000/ with your browser to see the result.
