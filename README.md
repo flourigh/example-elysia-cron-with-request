@@ -1,3 +1,16 @@
+# TOTP token generator Example Application with Cron
+
+## Pacotes utilizados:
+  - ElysiaJS (https://elysiajs.com/)
+  - ElysiaCron (https://elysiajs.com/plugins/cron.html)
+  - BunSH (https://bun.sh)
+  - JSSha (https://www.npmjs.com/package/jssha)
+
+## Configs:
+  - TZ (https://bun.sh/guides/runtime/timezone)
+  - ReadFile (https://bun.sh/guides/read-file/string)
+  - WriteFile (https://bun.sh/guides/write-file/basic)
+
 # Elysia with Bun runtime
 
 ## Getting Started
