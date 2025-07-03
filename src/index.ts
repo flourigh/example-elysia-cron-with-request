@@ -1,7 +1,12 @@
 import { Elysia } from "elysia";
 
-const app = new Elysia().get("/", () => "Hello Elysia").listen(3000);
+import tokenCron from "./cron/tokenCron";
 
-console.log(
-  `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
-);
+process.env.TZ = "America/Sao_Paulo";
+
+const TOKEN_FILE = Bun.file("files/token.txt")
+
+new Elysia()
+  .get("/", () => TOKEN_FILE)
+	.use(tokenCron)
+	.listen(3000)
