@@ -11,18 +11,28 @@
   - ReadFile (https://bun.sh/guides/read-file/string)
   - WriteFile (https://bun.sh/guides/write-file/basic)
 
+## Configure:
+  Abra o arquivo `example-elysia-cron-with-request/src/cron/tokenCron.ts` e mude o `pattern` para o desejado, utilize padrão CRON para realizar a configração.
+
+  Abra o arquivo `example-elysia-cron-with-request/src/cron/tokenCron.ts` e mude o `secret` para um outro desejado.
+
+  Abra o arquivo `example-elysia-cron-with-request/src/cron/tokenCron.ts` e adicione o `period` em `totp` com o valor desejado.
+
+## Funcionamento
+  No arquivo `example-elysia-cron-with-request/src/cron/tokenCron.ts` está a função `totp` que recebe uma `secret` e opcionalmente um `period`.
+  A `secret` serve para criar o token a cada intervalo do `priod` determinado, em caso de não atibuição de um `period`, o memso será de 30s.
+
+  O `pattern` da Cron está configrado com `*/30 * * * * *` que no caso é 30s, ou seja, no 00s e no 30s de cada minuto.
+
+  Neste intervalo, ou seja, 30s e 00s, a Cron irá salvar no arquivo `files/token.txt` o token gerado pela função `totp` e este pode ser lido realizando uma request GET no http://localhost:3000
+
+
 # Elysia with Bun runtime
 
-## Getting Started
-To get started with this template, simply paste this command into your terminal:
-```bash
-bun create elysia ./elysia-example
-```
-
 ## Development
-To start the development server run:
-```bash
-bun run dev
-```
+  To start the development server run:
+  ```bash
+    bun dev
+  ```
 
-Open http://localhost:3000/ with your browser to see the result.
+  Open http://localhost:3000/ with your browser to see the result.
